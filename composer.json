@@ -1,0 +1,18 @@
+{
+    "name": "cisco/framework",
+    "description": "creation d'un framework maison pour poo en php",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Cisco\\Framework\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "xav",
+            "email": "xavfolio2.0@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
