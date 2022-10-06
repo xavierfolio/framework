@@ -1,9 +1,6 @@
 <?php
 
-
-/**
-De Tokyo SALLES VINCENNES à tout le monde 03:58 PM
-<?php
+use App\Kernel;
 
     /**
      * ----------------------------------------------------
@@ -22,15 +19,25 @@ De Tokyo SALLES VINCENNES à tout le monde 03:58 PM
     // Chargement du fichier de configuration
     require_once dirname(__DIR__) . "/config/bootstrap.php";
 
-dd("hello");
 
+// dd($_SERVER);
 
+if ($_SERVER['REQUEST_URI'] == "/")
+{
+    dd("page d'acceuil");
+}
+else{
+    dd("une autre page");
+}
 
     // Création d'une nouvelle instance du noyau de l'application
+    // $app = new App\Kernel();
+    $kernel = new Kernel($container);
     
 
     // Soumission de la requête au noyau
     // Récupération de la réponse
+    $response = $kernel->handleRequest();
 
 
     // Envoi de la réponse au navigateur
