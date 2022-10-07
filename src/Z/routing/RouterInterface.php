@@ -1,5 +1,5 @@
 <?php
-namespace App\Z\routing;
+namespace App\Z\Routing;
 
     interface RouterInterface
     {
@@ -11,7 +11,7 @@ namespace App\Z\routing;
          *
          * @return void
          */
-        public function sortRoutesByName($controllers) :void;
+        public function sortRoutesByName(array $controllers) :void;
 
 
         /**
