@@ -54,7 +54,13 @@ public function __construct(ContainerInterface $container)
 
         public function handleRequest(): Response
         {
+
+            //je recupere le routeur depuis le conteneur de dependance
             $router =$this->container ->get(RouterInterface::class);
-            dd($router);
+
+            // le noyau demande au routeur de s'executer
+            // le routeur lui retourne la reponse
+            $router_response = $router->run();
+            dd($router_response);
         }
         }

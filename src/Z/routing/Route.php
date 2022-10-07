@@ -36,7 +36,7 @@ use App\Z\Routing\RouteInterface;
          *
          * @var string
          */
-        private string $methods;
+        private array $methods;
 
 
         /**
