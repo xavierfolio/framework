@@ -22,7 +22,7 @@ use App\Kernel;
 
     // Création d'une nouvelle instance du noyau de l'application
     // $app = new App\Kernel();
-    $kernel = new Kernel($container);
+    $kernel = new App\Kernel($container);
     
 
     // Soumission de la requête au noyau
@@ -31,3 +31,4 @@ use App\Kernel;
 
 
     // Envoi de la réponse au navigateur
+    $response->send();

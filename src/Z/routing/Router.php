@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
          */
         private array $routes = [];
 
+
         /**
          * Cette propriété contient les paramètres de la barre d'url, s'il y en a.
          *
@@ -22,12 +23,12 @@ use Symfony\Component\HttpFoundation\Request;
          */
         private array $parameters = [];
 
+
         /**
-         * cette propriete represente l'objet request
-         *
-         * @var [type]
+         * Cette propriété représente l'objet request
          */
         private $request;
+
 
 
         public function __construct(Request $request, array $controllers)
@@ -81,9 +82,11 @@ use Symfony\Component\HttpFoundation\Request;
          */
         public function run() : ?array
         {
+
+            // dd($this->routes);
+            
             foreach ($this->routes as $route) 
             {
-                // dd($route);
                 if ( $this->matchWith($this->request->server->get('REQUEST_URI'), $route['route']->getPath()) ) 
                 {
                     if ( isset($this->parameters) && !empty($this->parameters) ) 
@@ -108,10 +111,10 @@ use Symfony\Component\HttpFoundation\Request;
 
         public function matchWith($uri_url, $uri_route)
         {
-            $pattern = preg_replace("#{[a-z]+}#", "([0-9a-zA-Z-_]+)+", $uri_route);
+            $pattern = preg_replace("#{[a-z]+}#", "([0-9a-zA-Z-_]+)", $uri_route);
             $pattern = "#^$pattern$#";
 
-            if (preg_match($pattern, $uri_url, $matches))
+            if ( preg_match($pattern, $uri_url, $matches) ) 
             {
                 array_shift($matches);
                 $this->parameters = $matches;

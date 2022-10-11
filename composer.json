@@ -17,9 +17,22 @@
     "require": {
         "vlucas/phpdotenv": "5.4.x-dev",
         "php-di/php-di": "dev-master",
-        "symfony/http-foundation": "6.2.x-dev"
+        "symfony/http-foundation": "6.2.x-dev",
+        "twig/twig": "3.x-dev"
     },
     "require-dev": {
         "symfony/var-dumper": "6.2.x-dev"
+    },
+    "scripts":{
+        "serve": [
+            "php -S localhost:8000 -d display_errors=1 -t public"
+        ],
+        "cache:clear" : [
+            "rd var\\cache\\dev\\twig /S/Q"
+        ]
+    },
+    "config":{
+        "process-timeout": 0,
+        "optimize-autoloader": true
     }
 }
